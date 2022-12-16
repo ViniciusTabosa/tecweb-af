@@ -34,7 +34,7 @@
     </div>
     -->
 
-   <!-- <script src="js/flappy.js"></script> -->
+   <script src="js/flappy.js"></script>
 </body>
 
 </html>
