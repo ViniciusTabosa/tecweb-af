@@ -1,3 +1,15 @@
+function mudarCenario(){
+    let opCenario = document.querySelector('input[name="cenario"]:checked').value;
+
+    let jogo = document.querySelector('[wm-flappy]')
+
+    if(opCenario == 'diurno'){
+        jogo.style.background = "var(--backgroundDark)"
+    }else if(opCenario == 'noturno'){
+        jogo.style.background = "var(--backgroundLight)"
+    }
+}
+
 function novoElemento(tagName, className) {
     const elemento = document.createElement(tagName)
     elemento.className = className
@@ -76,7 +88,7 @@ function Barreiras(altura, largura, abertura, espaco, notificarPonto) {
 const barreiras = new Barreiras(500, 300, 100, 400)
 const areaDoJogo = document.querySelector('[wm-flappy]')
 
-// barreiras.pares.forEach( par => areaDoJogo.appendChild(par.elemento)) // criado outras barreiras no fundo
+barreiras.pares.forEach( par => areaDoJogo.appendChild(par.elemento)) // criado outras barreiras no fundo
 
 setInterval(() => {
     barreiras.animar()
@@ -194,4 +206,6 @@ function colidiu(passaro, barreiras) {
         }, 20)
     }
 }
+
+
 new FlappyBird().start()
