@@ -5,7 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flappy Bird</title>
-    <link rel="stylesheet" href="css/flappy.css">
+    <link rel="stylesheet" href="flappy.css">
+
+    <style>
+        [wm-flappy]{
+            <?php
+                $tema = $_GET['cenario'];
+                if($tema == 'noturno'){
+                    echo'background: #2F3430;';
+                }
+            ?>
+        }
+
+        .barreira .borda{
+            <?php
+                $tema = $_GET['cenario'];
+                if($tema == 'noturno'){
+                    echo'background: linear-gradient(90deg, #446500, #84BA28);';
+                }
+            ?>
+        }
+
+        .barreira .corpo{
+            <?php
+                $tema = $_GET['cenario'];
+                if($tema == 'noturno'){
+                    echo'background: linear-gradient(90deg, #446500, #84BA28);';
+                }
+            ?>
+        }
+    </style>
 </head>
 
 <body class="conteudo">

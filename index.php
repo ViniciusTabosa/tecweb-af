@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flappy Bird</title>
     <link rel="stylesheet" href="flappy.css">
+    <!-- <script src="js/pegarVelocidade.js"></script> -->
+    <script src="js/flappy.js"></script>
 </head>
 
 <body class="conteudo">

@@ -27,7 +27,7 @@
 
     $retorno = $mysqli->execute();
 
-    echo'<script>window.location.href="flappy.php"</script>';
+    echo'<script>window.location.href="flappy.php?cenario='.$cenario.'"</script>';
 
     // echo $retorno;
 
