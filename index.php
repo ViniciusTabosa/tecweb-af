@@ -41,7 +41,7 @@
 
             <span class="span-form">
                Velocidade do jogo:
-               1<input type="range" name="veloc-jogo" id="veloc-jogo" min="0" max="10">10
+               1<input type="range" name="veloc-jogo" id="veloc-jogo" min="1" max="10">10
             </span>
 
             <span class="span-form">

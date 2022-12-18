@@ -196,11 +196,8 @@ function colidiu(passaro, barreiras) {
     }
 }
 
-function getVelocJogo(){
-    let vElemento = document.querySelector("#veloc-jogo")
-    let velocidade = vElemento.value
-    return velocidade
+function queryString(){
+    
 }
-
 
 new FlappyBird().start()

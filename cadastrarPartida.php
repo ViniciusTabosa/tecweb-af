@@ -12,11 +12,9 @@
     $pontuacao = strval($_POST['pontuacao']);
     $pontuacaoFinal = 0;
 
-    // echo "$jogador, $cenario, $intervalosCanos, $distanciaCanos, $velocidadeJogo, $personagem, $tipoJogo, $velocidadePersonagem, $pontuacao, $pontuacaoFinal";
 
     $retornoBD;
     $conexaoBD;
-
 
     $objConexao = new Conexao();
     $conexaoBD = $objConexao->getConexao();
@@ -27,8 +25,4 @@
 
     $retorno = $mysqli->execute();
 
-    echo'<script>window.location.href="flappy.php?cenario='.$cenario.'"</script>';
-
-    // echo $retorno;
-
-    // INSERT INTO `infopartidas` (`idpartida`, `jogador`, `cenario`, `intervalocanos`, `distanciacanos`, `velocidadejogo`, `personagem`, `tipojogo`, `velocidadeperson`, `pontuacao`, `pontuacaofinal`) VALUES (NULL, 'teste', 'diurno', 'facil', 'facil', '5', 'passaro', 'real', 'rapida', '10', '100');
+    echo'<script>window.location.href="flappy.php?jo='.$jogador.'&cen='.$cenario.'&ic='.$intervalosCanos.'&dc='.$distanciaCanos.'&vj='.$velocidadeJogo.'&pe='.$personagem.'&tj='.$tipoJogo.'&vp='.$velocidadePersonagem.'&po='.$pontuacao.'"</script>';
