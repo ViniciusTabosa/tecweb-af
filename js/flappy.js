@@ -186,7 +186,7 @@ function mudarPersonagem(){
             return 'img/nyan-cat-107x75.png';
         break;
         case 'fantasma':
-            return 'img/fantasma-comunismo-107x95.png';
+            return 'img/fantasma-107x95.png';
         break;
         default:
             return null;
