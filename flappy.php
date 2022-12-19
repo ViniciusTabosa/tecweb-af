@@ -32,28 +32,7 @@
 <body class="conteudo">
     <h1>Flappy Bird</h1>
 
-    <!-- <div id="div-fim">
-        <h5>Fim de jogo</h5>
-        Jogador: <p>alouef</p>
-        Pontuaço: <p>12143</p>
-    </div> -->
     <div wm-flappy>
-
-    <!-- 
-    <img class="passaro" src="img/passaro.png" alt="passaro">
-    <div class="par-de-barreiras">
-        <div class="barreira">
-            <div class="corpo"> </div>
-            <div class="borda"></div>
-        </div>
-        <div class="barreira">
-            <div class="borda"> </div>
-            <div class="corpo"></div>
-        </div>
-    </div> 
-    <div class="progresso"> 10 </div>   
-    </div>
-    -->
 
    <script src="js/flappy.js"></script>
 </body>

@@ -25,3 +25,4 @@
     $retorno = $mysqli->execute();
 
     echo'<script>window.location.href="flappy.php?jo='.$jogador.'&cen='.$cenario.'&ic='.$intervalosCanos.'&dc='.$distanciaCanos.'&vj='.$velocidadeJogo.'&pe='.$personagem.'&tj='.$tipoJogo.'&vp='.$velocidadePersonagem.'&po='.$pontuacao.'"</script>';
+?>

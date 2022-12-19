@@ -14,11 +14,6 @@ function Barreira(reversa = false) {
     this.setAltura = altura => corpo.style.height = `${altura}px`
 }
 
-// const b= new Barreira(false)
-// b.setAltura(300)
-// document.querySelector('[wm-flappy]').appendChild(b.elemento)
-
-
 function ParDeBarreiras(altura, abertura, popsicaoNaTela) {
     this.elemento = novoElemento('div', 'par-de-barreiras')
     this.superior = new Barreira(true)
@@ -41,9 +36,6 @@ function ParDeBarreiras(altura, abertura, popsicaoNaTela) {
     this.sortearAbertura()
     this.setX(popsicaoNaTela)
  } 
-
-// const b= new ParDeBarreiras(550,250,500)
-// document.querySelector('[wm-flappy]').appendChild(b.elemento)
 
 function Barreiras(altura, largura, abertura, espaco, notificarPonto) {
     this.pares = [
@@ -74,8 +66,6 @@ function Barreiras(altura, largura, abertura, espaco, notificarPonto) {
 
 const barreiras = new Barreiras(500, 300, 100, 400) 
 const areaDoJogo = document.querySelector('[wm-flappy]')
-
-// barreiras.pares.forEach( par => areaDoJogo.appendChild(par.elemento)) // criado outras barreiras no fundo
 
 setInterval(() => {
     barreiras.animar()
@@ -109,21 +99,7 @@ function Passaro(alturaJogo) {
     this.setY(alturaJogo / 2)
 }
 
-// const barreiras = new Barreiras(700, 400, 200, 400)
-// const passaro = new Passaro(700)
-
-// const areaDoJogo = document.querySelector('[wm-flappy]')
-
-// areaDoJogo.appendChild(passaro.elemento)
-// barreiras.pares.forEach( par => areaDoJogo.appendChild(par.elemento)) 
-
-// setInterval(() => {
-//       barreiras.animar()
-//       passaro.animar() 
-// },20)
-
-
- function Progresso() {
+function Progresso() {
 
     this.elemento = novoElemento('span', 'progresso')
     this.atualizarPontos = pontos => {
@@ -132,16 +108,7 @@ function Passaro(alturaJogo) {
     this.atualizarPontos(0)
 }
 
-// const barreiras = new Barreiras(700, 400, 200, 400)
-// const passaro = new Passaro(700)
-
-// const areaDoJogo = document.querySelector('[wm-flappy]')
-
-// areaDoJogo.appendChild(passaro.elemento)
-// barreiras.pares.forEach( par => areaDoJogo.appendChild(par.elemento))
-
-
- function estaoSobrepostos(elementoA, elementoB) {
+function estaoSobrepostos(elementoA, elementoB) {
 
     const a = elementoA.getBoundingClientRect()
     const b = elementoB.getBoundingClientRect()
@@ -166,7 +133,7 @@ function colidiu(passaro, barreiras) {
 
 }
 
- function FlappyBird() {
+function FlappyBird() {
     let pontos = 0
     const areaDoJogo = document.querySelector('[wm-flappy]')
     const altura = areaDoJogo.clientHeight
@@ -192,18 +159,13 @@ function colidiu(passaro, barreiras) {
                     clearInterval(temporizador)
                     window.location.href=`resultados.php?jo=${jo}`
                     
-                }
-                // const url = new URLSearchParams(window.location.search)
-                // const urlFim = url.get('jo')
-                // window.location.href='fimJogo.php?jo='.urlFim
-            }
-            
+                }                
+            }            
         }, 20)
     }
 }
 
-
-
+// ***************************************************** Funções de Configuração ****************************************************
 
 function velocidadeJogo(){
     const url = new URLSearchParams(window.location.search)
