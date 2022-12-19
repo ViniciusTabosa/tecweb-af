@@ -54,7 +54,7 @@ function Barreiras(altura, largura, abertura, espaco, notificarPonto) {
         new ParDeBarreiras(altura, abertura, largura + espaco * 3)
     ]
 
-    const deslocamento = 3
+    const deslocamento = velocidadeJogo()
     this.animar = () => {
         this.pares.forEach(par => {
             par.setX(par.getX() - deslocamento)
@@ -73,7 +73,7 @@ function Barreiras(altura, largura, abertura, espaco, notificarPonto) {
     }
 }
 
-const barreiras = new Barreiras(500, 300, 100, 400)
+const barreiras = new Barreiras(500, 300, 100, 400) //mudar distancia/abertura dos canos [0] mudar intevalo dos canos [3]
 const areaDoJogo = document.querySelector('[wm-flappy]')
 
 // barreiras.pares.forEach( par => areaDoJogo.appendChild(par.elemento)) // criado outras barreiras no fundo
@@ -87,7 +87,7 @@ function Passaro(alturaJogo) {
     let voando = false
 
     this.elemento = novoElemento('img', 'passaro')
-    this.elemento.src = 'img/passaro.png'
+    this.elemento.src = mudarPersonagem()
 
     this.getY = () => parseInt(this.elemento.style.bottom.split('px')[0])
     this.setY = y => this.elemento.style.bottom = `${y}px`
@@ -96,7 +96,7 @@ function Passaro(alturaJogo) {
     window.onkeyup = e => voando = false
 
     this.animar = () => {
-        const novoY = this.getY() + (voando ? 8 : -5)
+        const novoY = this.getY() + (voando ? mudarVelocidadePerson()[0] : mudarVelocidadePerson()[1])
         const alturaMaxima = alturaJogo - this.elemento.clientWidth
 
         if (novoY <= 0) {
@@ -181,23 +181,92 @@ function colidiu(passaro, barreiras) {
 
     areaDoJogo.appendChild(progresso.elemento)
     areaDoJogo.appendChild(passaro.elemento)
-    barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))
-    // mudarCenario()
+    barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))    
 
     this.start = () => {
         const temporizador = setInterval(() => {
             barreiras.animar()
             passaro.animar()
 
-              if(colidiu(passaro,barreiras)){
-                 clearInterval(temporizador) 
-             } 
+            if(tipoJogo() == 'real'){
+                if(colidiu(passaro,barreiras)){
+                    clearInterval(temporizador) 
+                }
+            }
+            
         }, 20)
     }
 }
 
-function queryString(){
-    
+
+
+
+function velocidadeJogo(){
+    const url = new URLSearchParams(window.location.search)
+    const urlVJ = url.get('vj')
+
+    return urlVJ
+}
+
+function mudarPersonagem(){
+    const url = new URLSearchParams(window.location.search)
+    const urlPe = url.get('pe')
+
+    switch (urlPe){
+        case 'passaro':
+            return 'img/passaro.png';
+        break;
+        case 'nyan':
+            return 'img/nyan-cat-107x75.png';
+        break;
+        default:
+            return null;
+    }
+}
+
+function mudarVelocidadePerson(){
+    const url = new URLSearchParams(window.location.search)
+    const urlVP = url.get('vp')
+
+    switch (urlVP){
+        case 'baixa':
+            return [4, -3];
+        break;
+        case 'media':
+            return [8, -5];
+        break;
+        case 'rapida':
+            return [12, -7];
+        break;
+        default:
+            return vel[8, -5];
+    }
+}
+
+function tipoJogo(){
+    const url = new URLSearchParams(window.location.search)
+    const urlTJ = url.get('tj')
+
+    return urlTJ
+}
+
+function mudarAberturaCanos(){
+    const url = new URLSearchParams(window.location.search)
+    const urlIC = url.get('ic')
+
+    switch (urlIC){
+        case 'facil':
+            return ;
+        break;
+        case 'medio':
+            return 500;
+        break;
+        case 'dificil':
+            return ;
+        break;
+        default:
+            return 500;
+    }
 }
 
 new FlappyBird().start()

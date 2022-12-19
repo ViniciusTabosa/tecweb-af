@@ -12,7 +12,6 @@
     $pontuacao = strval($_POST['pontuacao']);
     $pontuacaoFinal = 0;
 
-
     $retornoBD;
     $conexaoBD;
 

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flappy Bird</title>
     <link rel="stylesheet" href="flappy.css">
+    <script src="js/querystring.js"></script>
     <?php
         $tema = $_GET['cen'];
         if($tema == 'noturno'){
@@ -30,6 +31,12 @@
 
 <body class="conteudo">
     <h1>Flappy Bird</h1>
+
+    <div id="div-fim">
+        <h5>Fim de jogo</h5>
+        Jogador: <p>alouef</p>
+        Pontuaço: <p>12143</p>
+    </div>
     <div wm-flappy>
 
     <!-- 
