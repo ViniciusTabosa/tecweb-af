@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flappy Bird</title>
     <link rel="stylesheet" href="flappy.css">
-    <script src="js/querystring.js"></script>
+    
     <?php
         $tema = $_GET['cen'];
         if($tema == 'noturno'){

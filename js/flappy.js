@@ -12,7 +12,6 @@ function Barreira(reversa = false) {
     this.elemento.appendChild(reversa ? borda : corpo)
 
     this.setAltura = altura => corpo.style.height = `${altura}px`
-
 }
 
 // const b= new Barreira(false)
@@ -178,9 +177,6 @@ function colidiu(passaro, barreiras) {
         () => progresso.atualizarPontos(++pontos))
 
     const passaro = new Passaro(altura)
-    //200 - mudar distancia/abertura dos canos e 400 - mudar intevalo dos canos
-    //150, 200 e 250 para abertura
-    //300, 400, 500
     areaDoJogo.appendChild(progresso.elemento)
     areaDoJogo.appendChild(passaro.elemento)
     barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))    
@@ -191,10 +187,15 @@ function colidiu(passaro, barreiras) {
             passaro.animar()
 
             if(tipoJogo() == 'real'){
+                let jo = retornaJogador()
                 if(colidiu(passaro,barreiras)){
-                    clearInterval(temporizador) 
+                    clearInterval(temporizador)
+                    window.location.href=`resultados.php?jo=${jo}`
+                    
                 }
-                
+                // const url = new URLSearchParams(window.location.search)
+                // const urlFim = url.get('jo')
+                // window.location.href='fimJogo.php?jo='.urlFim
             }
             
         }, 20)
@@ -245,7 +246,7 @@ function mudarVelocidadePerson(){
             return [12, -7];
         break;
         default:
-            return vel[8, -5];
+            return [8, -5];
     }
 }
 
@@ -292,6 +293,13 @@ function distanciaCanos(){
         default:
             return 400;
     }
+}
+
+function retornaJogador(){
+    const url = new URLSearchParams(window.location.search)
+    const urlFim = url.get('jo')
+
+    return urlFim
 }
 
 new FlappyBird().start()

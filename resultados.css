@@ -1,0 +1,24 @@
+h3{
+    color: red;
+}
+
+.td-resultado{
+    background-color: #639301;
+    padding: 10px;
+}
+
+#div-resultado{
+    border: 5px #639301 solid;
+    padding: 10px;
+    background-color: deepskyblue;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.td-linha{
+    background-color: #0080aa;
+}
+
+button{
+    margin-top: 1rem;
+}
