@@ -12,9 +12,6 @@
     $pontuacao = strval($_POST['pontuacao']);
     $pontuacaoFinal = 0;
 
-    $retornoBD;
-    $conexaoBD;
-
     $objConexao = new Conexao();
     $conexaoBD = $objConexao->getConexao();
 
