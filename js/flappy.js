@@ -73,7 +73,7 @@ function Barreiras(altura, largura, abertura, espaco, notificarPonto) {
     }
 }
 
-const barreiras = new Barreiras(500, 300, 100, 400) //mudar distancia/abertura dos canos [0] mudar intevalo dos canos [3]
+const barreiras = new Barreiras(500, 300, 100, 400) 
 const areaDoJogo = document.querySelector('[wm-flappy]')
 
 // barreiras.pares.forEach( par => areaDoJogo.appendChild(par.elemento)) // criado outras barreiras no fundo
@@ -174,11 +174,13 @@ function colidiu(passaro, barreiras) {
     const largura = areaDoJogo.clientWidth
 
     const progresso = new Progresso()
-    const barreiras = new Barreiras(altura, largura, 200, 400,
+    const barreiras = new Barreiras(altura, largura, intervaloCanos(), distanciaCanos(),
         () => progresso.atualizarPontos(++pontos))
 
     const passaro = new Passaro(altura)
-
+    //200 - mudar distancia/abertura dos canos e 400 - mudar intevalo dos canos
+    //150, 200 e 250 para abertura
+    //300, 400, 500
     areaDoJogo.appendChild(progresso.elemento)
     areaDoJogo.appendChild(passaro.elemento)
     barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))    
@@ -192,6 +194,7 @@ function colidiu(passaro, barreiras) {
                 if(colidiu(passaro,barreiras)){
                     clearInterval(temporizador) 
                 }
+                
             }
             
         }, 20)
@@ -218,6 +221,9 @@ function mudarPersonagem(){
         break;
         case 'nyan':
             return 'img/nyan-cat-107x75.png';
+        break;
+        case 'fantasma':
+            return 'img/fantasma-comunismo-107x95.png';
         break;
         default:
             return null;
@@ -250,22 +256,41 @@ function tipoJogo(){
     return urlTJ
 }
 
-function mudarAberturaCanos(){
+function intervaloCanos(){
     const url = new URLSearchParams(window.location.search)
     const urlIC = url.get('ic')
 
     switch (urlIC){
         case 'facil':
-            return ;
+            return 250;
         break;
         case 'medio':
-            return 500;
+            return 200;
         break;
         case 'dificil':
-            return ;
+            return 150;
         break;
         default:
+            return 200;
+    }
+}
+
+function distanciaCanos(){
+    const url = new URLSearchParams(window.location.search)
+    const urlDC = url.get('dc')
+
+    switch (urlDC){
+        case 'facil':
             return 500;
+        break;
+        case 'medio':
+            return 400;
+        break;
+        case 'dificil':
+            return 250;
+        break;
+        default:
+            return 400;
     }
 }
 

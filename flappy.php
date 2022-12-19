@@ -32,11 +32,11 @@
 <body class="conteudo">
     <h1>Flappy Bird</h1>
 
-    <div id="div-fim">
+    <!-- <div id="div-fim">
         <h5>Fim de jogo</h5>
         Jogador: <p>alouef</p>
         Pontuaço: <p>12143</p>
-    </div>
+    </div> -->
     <div wm-flappy>
 
     <!-- 

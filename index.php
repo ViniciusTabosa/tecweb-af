@@ -49,6 +49,7 @@
                 <select name="personagens" id="select-personagens">
                     <option value="passaro">Pássaro</option>
                     <option value="nyan">Nyan Cat</option>
+                    <option value="fantasma">Fantasma</option>
                 </select>
             </span>
 
